@@ -1,4 +1,4 @@
-This Project is about a  Registration Form with validation using Javascript,React,ApolloClient & Graphql.
+## This Project is about a  Registration Form with validation using Javascript,React,ApolloClient & Graphql.
 
 ## Folder Structure
 
