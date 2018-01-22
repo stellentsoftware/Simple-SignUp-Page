@@ -17,7 +17,7 @@ function encrypt(text){
 // List all users
 exports.listUsers = async (root, {limit}) => {
 
-  limit=limit || 20;
+  limit= limit || 30;
 
   let user = await db.User.find().skip(0).limit(parseInt(limit));
   return user;
@@ -59,4 +59,26 @@ exports.signUp = async (root,{firstName,lastName,userName,email,password,contact
             }
           }
         }
+      }
+      //signIn
+      exports.signIn = async (root,{userName,password}) =>{
+
+        var user = await db.User.findOne({'userName' : userName})
+            if(user == undefined) {
+              return Promise.reject('Please enter valid password');
+            }
+            else{
+              if(user.password ==(password = encrypt(password))){
+                if(user.isDelete == true){
+                  return Promise.reject('Your Account is blocked');
+                }
+                else{
+                 return Promise.resolve(user);
+                 console.log("user")
+                }
+              }
+              else{
+                return Promise.reject('Invalid username or password');
+              }
+            }
       }

@@ -43,3 +43,17 @@ exports.signUp = {
     },
     resolve:catchErrors(signupController.signUp)
 }
+exports.signIn = {
+  type : userType,
+  args : {
+    userName : {
+      type : GraphQLString,
+      description : 'userName.'
+    },
+    password : {
+      type : GraphQLString,
+      description : 'password of the user'
+    },
+  },
+  resolve : catchErrors(signupController.signIn)
+}

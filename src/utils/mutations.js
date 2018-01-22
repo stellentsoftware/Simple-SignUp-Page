@@ -7,7 +7,16 @@ const mutations = {
      _id firstName lastName userName email createdDate  message error password contactNumber
    }
  }
- `
+ `,
+ SIGNIN : gql`
+ mutation signIn($userName:String,$password:String) {
+  signIn(userName:$userName,password:$password) {
+    _id  userName password
+  }
+}
+`
+
+
 }
 
 export default mutations;

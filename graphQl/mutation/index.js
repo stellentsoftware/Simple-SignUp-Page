@@ -1,7 +1,7 @@
-const {signUp}  = require('./signUp')
-
+const {signUp,signIn}  = require('./signUp')
 
 module.exports = {
-  signUp
+  signUp,
+  signIn
 
 }
